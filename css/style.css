@@ -1,3 +1,13 @@
+/* CUSTOM-PROPS */
+:root {
+  --body-bg: #f1f4ff;
+  --green: #4dc490;
+  --purple: #655af2;
+  --red: #f03535;
+  --text-color: #000;
+}
+
+
 /* GLOBAL */
 html {
   box-sizing: border-box;
@@ -20,8 +30,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  background-color: #F1F4FF;
-  color: #fff;
+  background-color: var(--body-bg);
+  color: var(--text-color);
 }
 
 img {
@@ -30,7 +40,7 @@ img {
 }
 
 *:focus {
-  outline: 1px dashed #000;
+  outline: 2px dotted var(--purple);
   outline-offset: 3px;
 }
 
@@ -38,16 +48,7 @@ img {
 /* CONTAINER  */
 .container {
   width: 100%;
-  max-width: 1240px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-container {
-  width: 100%;
-  max-width: 390px;
+  max-width: 1192px;
   padding-left: 20px;
   padding-bottom: 20px;
   margin-left: auto;
@@ -55,115 +56,140 @@ img {
 }
 
 
-/* CARD  */
-.card {
-  width: 470px;
-  height: 640px;
+/* MAIN-CONTENT */
+.main-content {
+  flex-grow: 1;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+
+/* INTRO-PAGE  */
+.intro-page {
+  display: flex;
+}
+
+
+/* HERO  */
+.hero {
+  --text-color: #fff;
   display: flex;
   flex-direction: column;
-  margin: 12px;
-  padding-top: 55px;
+  width: 100%;
+  max-width: 570px;
   border-radius: 20px;
+  color: var(--text-color);
+  overflow: hidden;
 }
 
-.modal {
-  margin: auto;
+.hero-main {
+  flex-grow: 1;
   display: flex;
-}
-
-
-/* INTRO */
-.intro-card {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 55px 60px;
+  background-color: #222;
   background-image: url("../img/Rectangle.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
-.intro-card-name {
+.hero-badge {
   padding: 5px 15px;
-  border: 1px solid #fff;
-  border-radius: 40px;
-  opacity: 0.8;
+  margin-bottom: 60px;
+  border: 1px solid var(--text-color);
+  border-radius: 41px;
+  line-height: normal;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.intro-card-title {
-  margin-top: 60px;
+.hero-heding {
+  margin-top: 0;
   margin-bottom: 25px;
-  font-weight: 700;
   font-size: 36px;
   line-height: 46px;
 }
 
-.intro-card-text {
+.hero-text {
   font-size: 16px;
   line-height: 26px;
 }
 
-.intro-card-button {
-  display: block;
-  width: 100%;
-  margin-top: auto;
-  padding-top: 28px;
-  padding-bottom: 28px;
-  border: 1px solid #4dc490;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-color: #4dc490;
+.hero-bottom {
+  padding: 28px;
+  text-align: center;
   font-size: 19px;
-  line-height: 23px;
-  color: #fff;
-}
-
-.intro-card-button:hover {
-  opacity: 0.6;
+  background-color: var(--green);
 }
 
 
 /* FORM */
-.intro-card-form {
+.signup-form {
+  width: 100%;
+  max-width: 570px;
+  padding: 55px 60px 40px;
+  margin-left: 12px;
+  border-radius: 20px;
+  overflow: hidden;
   background-color: #fff;
-  color: #000;
 }
 
-.intro-card-form-title {
+.signup-form-heading {
+  margin-top: 0;
+  margin-bottom: 65px;
   font-size: 32px;
   line-height: 42px;
   font-weight: 600;
-  margin-bottom: 80px;
 }
-.form {
-  width: 100%;
+
+.signup-form-fields {
+  display: flex;
+  flex-direction: column;
   border: 0;
-  margin-bottom: 35px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #000;
+  margin-bottom: 65px;
 }
 
-.button {
-  display: inline-block;
-  width: 100%;
+.signup-form-field {
+  padding-top: 15px;
+  padding-bottom: 14px;
   border: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  color: #fff;
-}
-
-.button-primary {
-  background-color: #655AF2;
-}
-
-.confirm {
-  margin-top: 8px;
-  margin-bottom: 8px;
-  font-size: 11px;
-  line-height: 15px;
-  font-weight: 500;
+  border-bottom: 1px solid #555;
   color: #555;
 }
 
-.confirm-link {
-  color: #F03535;
+.signup-form-field:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.signup-form-field:focus {
+  border-color: #000;
+  font-weight: 600;
+  color: #000;
+}
+
+
+.signup-form-submit {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 10px;
+  background-color: var(--purple);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signup-form-notice {
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.signup-form-notice-link {
+  font-weight: 500;
+  color: var(--red);
 }
